@@ -4,6 +4,7 @@
 
 reset
 rm -f ./bin/*.* 
+mkdir -p ./bin
 cp -r ./assets ./bin
 
 if [[ $OSTYPE == 'linux-gnu' ]]; then
