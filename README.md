@@ -10,7 +10,7 @@ A Linux i OSX:
 ./run.sh
 ```
 
-A Windows:
+A Windows Powershell:
 
 ```
 .\run.bat
