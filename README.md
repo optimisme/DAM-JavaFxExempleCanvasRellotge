@@ -24,4 +24,4 @@ Tenir en compte les llicències JavaFX que hi ha en cada una de les respectives 
 
 ### Captura ###
 
-![Rellotge](https://github.com/optimisme/DAM-ExempleCanvasJavaFX-Rellotge/main/assets/icon.png?raw=true)
+![Rellotge](./assets/icon.png)
