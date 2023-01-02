@@ -19,5 +19,3 @@ A Windows:
 ### Llicència ###
 
 Tenir en compte les llicències JavaFX que hi ha en cada una de les respectives carpetes
-
-[Wikipedia JavaFX](https://raw.githubusercontent.com/optimisme/DAM-ExempleCanvasJavaFX-Rellotge/main/assets/icon.png)
