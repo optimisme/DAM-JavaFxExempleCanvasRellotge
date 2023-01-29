@@ -1,4 +1,4 @@
-rem run with: .\run.bat
+rem run with; .\run.bat
 
 cls
 rm -r -force .\bin
@@ -7,5 +7,6 @@ rm -r -force .\lib\javafx-windows\lib\.*
 mkdir bin
 xcopy .\assets .\bin\assets /E /I /Y
 
-javac --module-path .\lib\javafx-windows\lib --add-modules javafx.controls,javafx.fxml -d .\bin\ .\src\*.java
-java  --module-path .\lib\javafx-windows\lib --add-modules javafx.controls,javafx.fxml -cp ".;.\\bin;.\\bin" Main
+javac --module-path .\lib\javafx-windows\lib;.\assets --add-modules javafx.controls,javafx.fxml -cp ".\\;.\\bin\\;.\\lib\\Java-WebSocket-1.5.3.jar;.\\lib\\slf4j-api-2.0.3.jar;.\\lib\\slf4j-simple-2.0.3.jar;.\\lib\\gson-2.9.1.jar" -d .\bin\ .\src\*.java
+java  --module-path .\lib\javafx-windows\lib;.\assets --add-modules javafx.controls,javafx.fxml -cp ".\\;.\\bin\\;.\\lib\\Java-WebSocket-1.5.3.jar;.\\lib\\slf4j-api-2.0.3.jar;.\\lib\\slf4j-simple-2.0.3.jar;.\\lib\\gson-2.9.1.jar" Main
+
