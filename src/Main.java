@@ -45,8 +45,8 @@ public class Main extends Application {
         stage.setMinHeight(windowHeight);
         stage.show();
 
-        Image icon = new Image("file:./assets/icon.png");
-        stage.getIcons().add(icon);
+        // Image icon = new Image("file:./assets/icon.png");
+        // stage.getIcons().add(icon);
     }
 
     @Override
