@@ -16,6 +16,7 @@ public class UtilsViews {
 
     public static Stage stage;
     public static StackPane parentContainer = new StackPane();
+    public static ArrayList<Object> controllers = new ArrayList<>();
 
     // Add one view to the list
     public static void addView(Class<?> cls, String name, String path) throws Exception {
@@ -34,6 +35,19 @@ public class UtilsViews {
         view.setManaged(defaultView);
 
         children.add(view);
+        controllers.add(loader.getController());
+    }
+
+    // Get controller by view id (viewId)
+    public static Object getController(String viewId) {
+        int index = 0;
+        for (Node n : parentContainer.getChildren()) {
+            if (n.getId().equals(viewId)) {
+                return controllers.get(index);
+            }
+            index++;
+        }
+        return null;
     }
 
     // Set visible view by its id (viewId)
