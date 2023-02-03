@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -44,8 +45,11 @@ public class Main extends Application {
         stage.setMinHeight(windowHeight);
         stage.show();
 
-        // Image icon = new Image("file:./assets/icon.png");
-        // stage.getIcons().add(icon);
+        // Add icon only if not Mac
+        if (!System.getProperty("os.name").contains("Mac")) {
+            Image icon = new Image("file:./assets/icon.png");
+            stage.getIcons().add(icon);
+        }
     }
 
     @Override
