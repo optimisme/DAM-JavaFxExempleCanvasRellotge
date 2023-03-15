@@ -7,8 +7,6 @@ import javafx.scene.paint.Color;
 
 public class Ctrl0Canvas {
 
-    long[] frameTimes = new long[120];
- 
     public Canvas cnv;
     private GraphicsContext gc;
     private AnimationTimer animationTimer;
