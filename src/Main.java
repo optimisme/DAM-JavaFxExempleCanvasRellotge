@@ -1,25 +1,14 @@
-import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
  
 public class Main extends Application {
 
-    public static Drawing drawing = new Drawing();
-    public static ArrayList<DrawingObj> drawingList = new ArrayList<>();
-
-    public static ObjNumeros numeros = new ObjNumeros();
-    public static ObjAgulles agulles = new ObjAgulles();
+    public static Crtl0 crtl0;
 
     public static void main(String[] args) {
- 
-        // Crear objectes
-        drawingList.add(numeros);
-        drawingList.add(agulles);
 
         // Iniciar app JavaFX   
         launch(args);
@@ -34,9 +23,10 @@ public class Main extends Application {
         UtilsViews.stage = stage;
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "View0", "./assets/view0.fxml");
+        crtl0 = (Crtl0) UtilsViews.getController("View0");
 
         Scene scene = new Scene(UtilsViews.parentContainer);
-        scene.addEventFilter(KeyEvent.ANY, keyEvent -> { keyEvent(keyEvent); });
+        scene.addEventFilter(KeyEvent.ANY, keyEvent -> { crtl0.keyEvent(keyEvent); });
 
         stage.setScene(scene);
         stage.onCloseRequestProperty(); // Call close method when closing window
@@ -46,7 +36,7 @@ public class Main extends Application {
         stage.show();
 
         // Start drawing loop
-        drawing.start(((Controller0) UtilsViews.getController("View0")).canvas);
+        crtl0.startDrawing();
 
         // Add icon only if not Mac
         if (!System.getProperty("os.name").contains("Mac")) {
@@ -58,23 +48,9 @@ public class Main extends Application {
     @Override
     public void stop() {
         // Aturar el bucle de dibuix
-        drawing.stop(); 
+        crtl0.stopDrawing();
 
         // Acabar l'aplicació
         System.out.println("Acabar");
-    }
-
-    public void keyEvent (KeyEvent evt) {
-
-        // Quan apretem una tecla
-        if (evt.getEventType() == KeyEvent.KEY_PRESSED) {
-            if (evt.getCode() == KeyCode.UP) {
-            }
-        }
-
-        // Quan deixem anar la tecla
-        if (evt.getEventType() == KeyEvent.KEY_RELEASED) {
-
-        }
     }
 }

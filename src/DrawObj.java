@@ -1,7 +1,7 @@
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
-interface DrawingObj {
+interface DrawObj {
     public void run(Canvas cnv, double fps);
     public void draw(GraphicsContext gc);
 }

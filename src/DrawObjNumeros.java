@@ -6,7 +6,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 
-public class ObjNumeros implements DrawingObj {
+public class DrawObjNumeros implements DrawObj {
 
 
     // Animar
