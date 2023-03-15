@@ -45,6 +45,9 @@ public class Main extends Application {
         stage.setMinHeight(windowHeight);
         stage.show();
 
+        // Start drawing loop
+        drawing.start(((Controller0) UtilsViews.getController("View0")).canvas);
+
         // Add icon only if not Mac
         if (!System.getProperty("os.name").contains("Mac")) {
             Image icon = new Image("file:./assets/icon.png");

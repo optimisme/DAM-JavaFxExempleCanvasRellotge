@@ -12,7 +12,7 @@ public class Controller0 implements Initializable {
     private AnchorPane anchor;
 
     @FXML
-    private Canvas canvas;
+    public Canvas canvas;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

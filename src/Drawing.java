@@ -24,54 +24,8 @@ public class Drawing {
         // Definir contexte de dibuix
         gc = canvas.getGraphicsContext2D();
 
-        // Iniciar el bucle de dibuix
-        animationTimer = new AnimationTimer() {
-            private long previousFrame = 0;
-
-            @Override public void handle(long now) {
-
-                // Ingorar el primer frame, però apuntar-se el temps
-                if (previousFrame == 0) {
-                    previousFrame = now;
-                    frameTimes[0] = now;
-                    frameCount++;
-                    return;
-                }
-                
-                // Si hem fet 2 frames en un cicle de pantalla, ignorar el segon
-                if (now <= previousFrame) {
-                    return;
-                }
-
-                // Mesurar els FPS
-                int frameIndex = (int) (frameCount % frameTimes.length);
-                frameTimes[frameIndex] = now;
-                if (frameCount > frameTimes.length) {
-                    // Quan ja tenim 120 frames, calcular els FPS
-                    int prev = (int) ((frameCount + 1) % frameTimes.length);
-                    long delta = now - frameTimes[prev];
-                    fps = (1e9 * frameTimes.length) / delta;
-                } else {
-                    // Si encara no tenim 120 frames, no podem calcular els FPS
-                    fps =60.0;
-                }
-                frameCount++;
-                
-                // Calcular el temps fins al pròxim dibuix de pantalla
-                long rest = now % frameNs;
-                long nextFrame = now;
-                if (rest != 0) {
-                    nextFrame += frameNs - rest;
-                }
-                
-                // Animar i dibuixar
-                run(fps);
-                previousFrame = nextFrame;
-                draw();
-            }
-        };
-
-        // Iniciar el bucle de dibuix
+        // Init drawing bucle
+        animationTimer = new DrawingFps(this::run, this::draw);
         animationTimer.start();
     }
 
