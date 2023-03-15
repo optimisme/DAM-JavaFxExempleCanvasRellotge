@@ -5,11 +5,8 @@ import javafx.scene.paint.Color;
 
 public class Drawing {
 
-    private long frameCount = 0;
-    private double fps = 60.0;
     long[] frameTimes = new long[120];
-    private long frameNs = 1_000_000_000L / 60; //Default a 60Hz
-  
+ 
     private Canvas cnv;
     private GraphicsContext gc;
     private AnimationTimer animationTimer;
