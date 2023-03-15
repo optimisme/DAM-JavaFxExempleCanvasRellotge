@@ -6,7 +6,7 @@ import javafx.stage.Stage;
  
 public class Main extends Application {
 
-    public static Ctrl0 crtl0;
+    public static Ctrl0 ctrl0;
 
     public static void main(String[] args) {
 
@@ -23,10 +23,10 @@ public class Main extends Application {
         UtilsViews.stage = stage;
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "View0", "./assets/view0.fxml");
-        crtl0 = (Ctrl0) UtilsViews.getController("View0");
+        ctrl0 = (Ctrl0) UtilsViews.getController("View0");
 
         Scene scene = new Scene(UtilsViews.parentContainer);
-        scene.addEventFilter(KeyEvent.ANY, keyEvent -> { crtl0.keyEvent(keyEvent); });
+        scene.addEventFilter(KeyEvent.ANY, keyEvent -> { ctrl0.keyEvent(keyEvent); });
 
         stage.setScene(scene);
         stage.onCloseRequestProperty(); // Call close method when closing window
@@ -36,7 +36,7 @@ public class Main extends Application {
         stage.show();
 
         // Start drawing loop
-        crtl0.startDrawing();
+        ctrl0.startDrawing();
 
         // Add icon only if not Mac
         if (!System.getProperty("os.name").contains("Mac")) {
@@ -48,7 +48,7 @@ public class Main extends Application {
     @Override
     public void stop() {
         // Aturar el bucle de dibuix
-        crtl0.stopDrawing();
+        ctrl0.stopDrawing();
 
         // Acabar l'aplicació
         System.out.println("Acabar");
