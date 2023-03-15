@@ -5,7 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Crtl0Canvas {
+public class Ctrl0Canvas {
 
     long[] frameTimes = new long[120];
  
@@ -13,11 +13,11 @@ public class Crtl0Canvas {
     private GraphicsContext gc;
     private AnimationTimer animationTimer;
 
-    public static ArrayList<DrawObj> drawingList = new ArrayList<>();
+    public static ArrayList<UtilsDrawObj> drawingList = new ArrayList<>();
     public static DrawObjNumeros numeros = new DrawObjNumeros();
     public static DrawObjAgulles agulles = new DrawObjAgulles();
 
-    public Crtl0Canvas () { }
+    public Ctrl0Canvas () { }
 
     // Iniciar el context i bucle de dibuix
     public void start (Canvas canvas) {
@@ -45,7 +45,7 @@ public class Crtl0Canvas {
     private void run(double fps) {
 
         // Animar elements
-        for (DrawObj obj : drawingList) {
+        for (UtilsDrawObj obj : drawingList) {
             obj.run(cnv, fps);
         }
     }
@@ -56,7 +56,7 @@ public class Crtl0Canvas {
         gc.clearRect(0, 0, cnv.getWidth(), cnv.getHeight());
 
         // Dibuixar elements
-        for (DrawObj obj : drawingList) {
+        for (UtilsDrawObj obj : drawingList) {
             obj.draw(gc);
         }
 

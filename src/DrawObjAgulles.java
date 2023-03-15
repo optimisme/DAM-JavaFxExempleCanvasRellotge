@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 
-public class DrawObjAgulles implements DrawObj {
+public class DrawObjAgulles implements UtilsDrawObj {
 
     // Definir atributs
     private double hores = 0;

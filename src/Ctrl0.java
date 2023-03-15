@@ -8,7 +8,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class Crtl0 implements Initializable {
+public class Ctrl0 implements Initializable {
 
     @FXML
     private AnchorPane anchor;
@@ -16,7 +16,7 @@ public class Crtl0 implements Initializable {
     @FXML
     public Canvas canvas;
 
-    public static Crtl0Canvas drawing = new Crtl0Canvas();
+    public static Ctrl0Canvas drawing = new Ctrl0Canvas();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

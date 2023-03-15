@@ -6,7 +6,7 @@ import javafx.stage.Stage;
  
 public class Main extends Application {
 
-    public static Crtl0 crtl0;
+    public static Ctrl0 crtl0;
 
     public static void main(String[] args) {
 
@@ -23,7 +23,7 @@ public class Main extends Application {
         UtilsViews.stage = stage;
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "View0", "./assets/view0.fxml");
-        crtl0 = (Crtl0) UtilsViews.getController("View0");
+        crtl0 = (Ctrl0) UtilsViews.getController("View0");
 
         Scene scene = new Scene(UtilsViews.parentContainer);
         scene.addEventFilter(KeyEvent.ANY, keyEvent -> { crtl0.keyEvent(keyEvent); });
