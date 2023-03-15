@@ -30,6 +30,8 @@ public class UtilsFps extends AnimationTimer {
             frameCount = 0;
         }
 
+        if (fps == 0) fps = 0.1;
+
         // Animar y dibuixar
         runFunction.accept(fps);
         drawFunction.run();

@@ -42,8 +42,6 @@ public class Ctrl0Canvas {
     // Animar
     private void run(double fps) {
 
-        if (fps == 0) return;
-
         // Animar elements
         for (UtilsDrawObj obj : drawingList) {
             obj.run(cnv, fps);
