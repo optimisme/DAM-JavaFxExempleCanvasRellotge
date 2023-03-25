@@ -22,10 +22,10 @@ public class Ctrl0 implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         // Initialize canvas responsive size
-        UtilsViews.stage.heightProperty().addListener((observable, oldValue, newvalue) -> {
+        UtilsViews.parentContainer.heightProperty().addListener((observable, oldValue, newvalue) -> {
             updateCanvasSize();
         });
-        UtilsViews.stage.widthProperty().addListener((observable, oldValue, newvalue) -> {
+        UtilsViews.parentContainer.widthProperty().addListener((observable, oldValue, newvalue) -> {
             updateCanvasSize();
         });
     }
