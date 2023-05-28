@@ -28,3 +28,4 @@ bin/*
 
 # Ignore release folder
 Release/
+node_modules
