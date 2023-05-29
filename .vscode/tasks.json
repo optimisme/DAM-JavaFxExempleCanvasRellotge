@@ -13,7 +13,7 @@
     {
       "label": "Compile for PowerShell",
       "type": "shell",
-      "command": "./build.sh",
+      "command": "./build.ps1",
       "group": {
         "kind": "build",
         "isDefault": true
