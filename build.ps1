@@ -116,11 +116,23 @@ Remove-Item -Recurse -Force ./bin
 # Get out of the development directory
 Set-Location ..
 
-# Move the Project.jar file to the release directory
-if (Test-Path -Path "./$folderRelease") {
-    Remove-Item -Recurse -Force ./$folderRelease
+# Move 'data' temporally
+if (Test-Path -Path "./$folderRelease/data") {
+    Move-Item -Path "./$folderRelease/data" -Destination "./data"
 }
-New-Item -ItemType Directory -Force -Path ./$folderRelease | Out-Null
+
+# Erase and create $folderRelease
+if (Test-Path -Path "./$folderRelease") {
+    Remove-Item -Recurse -Force "./$folderRelease"
+}
+New-Item -ItemType Directory -Force -Path "./$folderRelease" | Out-Null
+
+# Move 'data' to $folderRelease
+if (Test-Path -Path "./data") {
+    Move-Item -Path "./data" -Destination "./$folderRelease/data"
+}
+
+# Move the Project.jar file to the release directory
 Move-Item ./$folderDevelopment/Project.jar ./$folderRelease/Project.jar
 
 if (Test-Path -Path "./$folderDevelopment/lib") {

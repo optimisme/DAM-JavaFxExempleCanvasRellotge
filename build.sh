@@ -90,9 +90,21 @@ rm -rf ./bin
 # Get out of the development directory
 cd ..
 
-# Move the Project.jar file to the release directory
+# Move 'data' temporally
+if [ -d "./$folderRelease/data" ]; then
+    mv "./$folderRelease/data" ./
+fi
+
+# Erase and create $folderRelease
 rm -rf ./$folderRelease
 mkdir -p ./$folderRelease
+
+# Move 'data' to $folderRelease
+if [ -d "./data" ]; then
+    mv ./data "./$folderRelease/"
+fi
+
+# Move the Project.jar file to the release directory
 mv ./$folderDevelopment/Project.jar ./$folderRelease/Project.jar
 
 # Copy lib if it exists
