@@ -1,5 +1,9 @@
 # PowerShell script to build the project
 
+# Use the 'Project/data' folder for initial data.
+# Use the './data' folder for development data (or initial data).
+# Use the './Project/assets' folder to add data into the JAR file.
+
 Clear-Host
 
 $folderDevelopment = "Project"
@@ -129,7 +133,10 @@ New-Item -ItemType Directory -Force -Path "./$folderRelease" | Out-Null
 
 # Move 'data' to $folderRelease
 if (Test-Path -Path "./data") {
-    Move-Item -Path "./data" -Destination "./$folderRelease/data"
+    Copy -Path "./data" -Destination "./$folderRelease/data"
+}
+elseif (Test-Path -Path "./$folderDevelopment/data") {
+    Copy-Item -Path "./$folderDevelopment/data" -Destination "./$folderRelease/" -Recurse
 }
 
 # Move the Project.jar file to the release directory

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Use the 'Project/data' folder for initial data.
+# Use the './data' folder for development data (or initial data).
+# Use the './Project/assets' folder to add data into the JAR file.
+
 reset
 
 folderDevelopment="Project"
@@ -102,6 +106,8 @@ mkdir -p ./$folderRelease
 # Move 'data' to $folderRelease
 if [ -d "./data" ]; then
     mv ./data "./$folderRelease/"
+elif [ -d "./$folderDevelopment/data" ]; then
+    cp -r ./$folderDevelopment/data "./$folderRelease/"
 fi
 
 # Move the Project.jar file to the release directory
