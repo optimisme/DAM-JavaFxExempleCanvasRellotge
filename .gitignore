@@ -29,3 +29,6 @@ bin/*
 # Ignore release folder
 Release/
 node_modules
+
+target/classes
+target/maven-status

@@ -4,32 +4,15 @@ En aquest projecte hi ha un exemple de com dibuixar un rellotge al Canvas de Jav
 
 ### Compilació i funcionament ###
 
-A Linux i OSX:
-
-```
-./compile.sh
-```
-
-A Windows Powershell:
-
-```
-.\compile.bat
+Cal el 'Maven' per compilar el projecte
+```bash
+mvn clean
+mvn compile
+mvn exec:java -Dexec.mainClass="com.project.Main" -q
 ```
 
-Or, from Visual Studio Code:
+Per executar el projecte a Windows cal
+.\run.ps1 com.project.Main
 
-```
-"Terminal > Run task > Compile Project"
-
-```
-
-
-### Llicència ###
-
-Tenir en compte les llicències JavaFX que hi ha en cada una de les respectives carpetes
-
-[JavaFX](https://openjdk.org/projects/openjfx/)
-
-### Captura ###
-
-![Rellotge](./assets/icon.png)
+Per executar el projecte a Linux/macOS cal
+./run.sh com.project.Main
