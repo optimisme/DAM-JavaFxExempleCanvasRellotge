@@ -41,7 +41,8 @@ Write-Output "Setting MAVEN_OPTS to: $MAVEN_OPTS"
 Write-Output "Main Class: $mainClass"
 
 # Split the execArg into an array
-$execArgs = @("-PrunMain", "-Dexec.mainClass=$mainClass")
+$javafx_platform = "win"
+$execArgs = @("-PrunMain", "-Dexec.mainClass=$mainClass", "-Djavafx.platform=$javafx_platform")
 
 Write-Output "Exec args: $($execArgs -join ' ')"
 

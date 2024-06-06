@@ -5,6 +5,12 @@ get_latest_version() {
     find ~/.m2/repository/org/openjfx -name "${module_name}-*.jar" | grep -vE "javadoc|sources" | sort -Vr | head -n1
 }
 
+case "$OSTYPE" in
+  darwin*)  javafx_platform="mac" ;; 
+  linux*)   javafx_platform="linux" ;;
+  *)        javafx_platform="linux" ;;
+esac
+
 FX_BASE_PATH=$(get_latest_version "javafx-base")
 FX_CONTROLS_PATH=$(get_latest_version "javafx-controls")
 FX_FXML_PATH=$(get_latest_version "javafx-fxml")
@@ -34,8 +40,8 @@ echo "Setting MAVEN_OPTS to: $MAVEN_OPTS"
 echo "Main Class: $mainClass"
 
 # Execute mvn command with the profile and main class as arguments
-execArg="-PrunMain -Dexec.mainClass=$mainClass"
+execArg="-PrunMain -Dexec.mainClass=$mainClass -Djavafx.platform=$javafx_platform"
 echo "Exec args: $execArg"
 
 # Execute mvn command
-mvn clean test-compile exec:java $execArg
+mvn clean test-compile exec:java $execArg -X
